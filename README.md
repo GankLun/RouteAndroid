@@ -1,43 +1,36 @@
-# bsdiff-cross-platform
-bsdiff and bspatch which generates binary diff file in server and binary patch file in client
+# RouteAndroid
+an android route library for page forwarding and data transmission across different component
 
 
 ![RouteAndroid](logo.jpg "RouteAndroid")
 
 
-## DiffBinary
+## page router by transfer bundle params
 
-* DiffHelper.startDiffByCmd(String oldApkPath, String newApkPath, String patchPath) that bsdiff by commond in server
+ UrlRouter.from(context).params(bundle).jump("activity://news/detail");
+ 
 
-* DiffHelper.startDiff(String oldApkPath, String newApkPath, String patchPath) that bsdiff by JNI invoke in server,which will load dynamic link library.
+## page router by Animation
 
-* java -jar diffbinary2.jar oldApkPath newApkPath patchPath by commond in server
+UrlRouter.from(context).transitionAnim(R.anim.enterAnim,R.anim.exitAnim).jump("activity://news/detail");
+ 
 
-## PatchBinary
+## page router startup like startActivityForResult
 
-[PatchBinary](./PatchBinary):  PatchUtil.getInstance().applyPatch(oldApkPath, newApkPath, patchPath, targetMd5Hex) that generates new APK and make sure new APK 
-MD5 equals targetMd5Hex
+UrlRouter.from(context).requestCode(requestCode).jump("activity://news/detail");
 
-## bsdiff-win64-dll
+## page router by custom launch mode
 
-[bsdiff-win64-dll](./bsdiff-win64-dll):  bsdiff win64 source code which can generate bsdiff-win64-dll.dll run on windows x64
+UrlRouter.from(context).flags(flags).jump("activity://news/detail");
 
-## bsdiff
+## page router allows launch component with different application package
+UrlRouter.from(context).allowEscape().jump("activity://news/detail");
 
-[bsdiff](./bsdiff):  bsdiff win64 source code which can generate bsdiff.exe on windows x64
+## page router fobidden launch component with different application package
+UrlRouter.from(context).forbidEscape().jump("activity://news/detail");
 
-## bspatch-win64-dll
-[bspatch-win64-dll](./bspatch-win64-dll):  bspatch win64 source code which can generate bspatch-win64-dll.dll on windows x64
-
-## bspatch
-[bspatch](./bspatch):  bspatch win64 source code which can generate bspatch.exe on windows x64
-
-## Linux
-[Linux](./Linux):  bsdiff bspatch executable file on Linux
-
-## Mac
-[Mac](./Mac):  bsdiff bspatch executable file on mac os 
-
+## page router statup launch activity
+UrlRouter.from(context).jumpToMain("activity://news/detail");
 
 ## Documentation
 
