@@ -76,3 +76,13 @@ UrlRouter.from(context).jumpToMain("activity://news/detail");
 ![tips](tips.png "tips")
 
 please modify UrlRouter.java  "this.mIntent = new Intent("your action")",by your own actionName.
+
+## data router
+
+LocalRouter getInstance().registerProvider(String providerName, Provider provider);
+
+LocalRouter getInstance().unRegisterProvider(String providerName);
+
+LocalRouter getInstance().route(Context context, @NonNull RouteRequest routeRequest);
+
+LocalRouter getInstance().asyncRoute(Context context, @NonNull RouteRequest routeRequest, RouteResultListener routeResultListener);
