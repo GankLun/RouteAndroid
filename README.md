@@ -32,6 +32,47 @@ UrlRouter.from(context).forbidEscape().jump("activity://news/detail");
 ## page router statup launch activity
 UrlRouter.from(context).jumpToMain("activity://news/detail");
 
-## Documentation
+## AndroidManifest.xml configration
 
-- [Binary diff/patch utility](http://www.daemonology.net/bsdiff)
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+          package="com.demo">
+
+    <application
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        >
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data
+                    android:host="main"
+                    android:path="/main"
+                    android:scheme="activity"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="your action"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:host="news"
+                    android:path="/detail"
+                    android:scheme="activity"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+
+## page router tips
+
+![tips](tips.png "tips")
+
+please modify UrlRouter.java  "this.mIntent = new Intent("your action")",by your own actionName.
