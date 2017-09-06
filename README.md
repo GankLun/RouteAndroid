@@ -4,6 +4,9 @@ an android route library for page forwarding and data transmission across differ
 
 ![RouteAndroid](logo.jpg "RouteAndroid")
 
+## Gradle Dependency
+
+com.android.support:support-v4:23.x.x
 
 ## page router by transfer bundle params
 
